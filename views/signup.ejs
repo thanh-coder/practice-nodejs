@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- use Bootstrap library --> 
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+	<!-- use form.js script to validate main form --> 
+	<script src="./js/form.js"></script>
+
+	<title>Form Validation App</title>
+	<script type="text/javascript">
+
+	</script>
+	<style> 
+		form { 
+			margin: 10%; 
+		}
+		.errorHeader { 
+			font-weight: bold; 
+			color: red;
+			/* visibility: hidden; */ 
+			display: none; 
+		}
+	</style>
+</head>	
+
+<body>
+	<nav class="navbar navbar-light bg-light">
+     <a class="navbar-brand" style="position:absolute;right:1px" href="#" id="navbar">sign up</a>
+   </nav>
+
+	<form id="my_form" name="my_form" action="#" method="post" style="display: none"> 
+		<!-- this: onsubmit="return checkForm();"  can be used instead of onsubmit event handler addition in form.js file -->
+	 
+	  <div style="width:400px;border: 1px solid #ddd;
+    position: absolute;
+    left: 40%;
+    padding: 3px 10px;
+    top: 100px;
+    box-shadow: 0 0 5px 5px #ddd" id="signup">
+	   <h3 style="text-align: center;"> Form resgister account</h3>
+		
+		<div class="form-group has-feedback"> 
+			<label for="firstNameInput">First name * </label> 
+			<input type="text" class="form-control" name="firstNameInput" id="firstNameInput" placeholder="Jane" aria-describedby="firstNameInputStatus" onblur="firstNameValidate()">
+			<span id="firstNameIcon"></span>
+			<span id="firstNameInputStatus" class="errorHeader">First name filed is required!</span>
+		</div> 
+		<br />
+		<div class="form-group has-feedback"> 
+			<label for="lastNameInput">Last name * </label>
+			<input type="text" class="form-control" name="lastNameInput" id="lastNameInput" placeholder="Doe" aria-describedby="lastNameInputStatus"> 
+			<span id="lastNameIcon" aria-hidden="true"></span>
+			<span id="lastNameInputStatus" class="errorHeader">Last name field is required!</span>
+		</div>	
+		<br />
+		<div class="form-group has-feedback"> 
+			<label for="emailInput">Email address  *</label> 
+			<input type="email" class="form-control" name="emailInput" id="emailInput" placeholder="jane.doe@gmail.com" aria-describedby="emailInputStatus">
+			<span id="emailIcon" aria-hidden="true"></span> 
+			<span id="emailInputStatus" class="errorHeader">Email address is required!</span>
+		</div>	
+		</br>
+		<div class="form-group has-feedback"> 
+		<label for="passwordInput">password address  *</label> 
+		<input type="password" class="form-control" name="passwordInput" id="passwordInput" placeholder="password" aria-describedby="passwordInputStatus">
+		<span id="passwordIcon" aria-hidden="true"></span> 
+		<span id="passwordInputStatus" class="errorHeader">password address is required!</span>
+     	</div>	
+		<br />
+		<div class="form-group has-feedback"> 
+		<label for="accoutInput" style="margin-right: 20px;">type accout  </label> 
+		<span style="font-size: 16px">teacher</span> : <input type="checkbox" class="" name="teacherInput" id="teacherInput"  >
+		<span style="font-size: 16px">student</span> : <input type="checkbox" class="" name="studentInput" id="studentInput"  >
+		<span id="passwordIcon" aria-hidden="true"></span> 
+		<span id="passwordInputStatus" class="errorHeader">password address is required!</span>
+     	</div>
+		<br />
+		<div class="form-group has-feedback" style="display: flex;
+    justify-content: flex-end;" > 
+		<span id="nextstep" style=" border: 1px solid #ddd;
+    padding: 4px 2px;
+    font-weight: bold;cursor: pointer;">next step <strong>></strong> </span>
+         </div>
+		</div>
+
+
+		<div id="option-teacher" style="width:400px;border: 1px solid #ddd;
+    position: absolute;
+    left: 40%;
+    padding: 3px 10px;
+    top: 100px;
+    box-shadow: 0 0 5px 5px #ddd;display: none" id="signup">
+ 		<h2 style="text-align: center;" >Welcome teacher </h2>
+		 <div class="form-group has-feedback" >
+		language : <select name="carlist" form="" style="width:200px">
+			<option value="ENGLISH">ENGLISH</option>
+			<option value="VIETNAM">VIETNAM</option>
+			<option value="JAPAN">JAPANESE</option>
+			<option value="CHINA">CHINESE</option>
+		</select>
+		</div>
+		<br />
+
+		<div class="form-group has-feedback">
+	 country :<select name="carlist" form="" style="width:200px">
+	        <option value="VIETNAM">VIETNAM</option>
+		    <option value="JAPAN">JAPAN</option>
+		   <option value="US">US</option>
+		   <option value="ENGLAND">ENGLAND</option>
+	   </select>
+	   </div>
+		<br />
+
+	   <div class="form-group has-feedback">
+	  Timezone :<select name="carlist" form="" style="width:200px">
+			   <option value="VIETNAM">VIETNAM</option>
+			   <option value="US">US</option>
+			  
+		  </select>
+		  </div>
+		<br />
+
+		  <div class="form-group has-feedback">
+		  Birth year :<select name="carlist" form="" style="width:200px">
+				   <option value="1996">1996</option>
+				   <option value="1997">1997</option>
+				  <option value="1998">1998</option>
+				  <option value="1999">1999</option>
+			  </select>
+			  </div>
+		<br />
+	  <div class="form-group has-feedback" style="display: flex;
+    align-items: center;margin-bottom: 2px;">
+       
+		<p style="flex-grow: 1;cursor: pointer; "><span class="laststep1" style="border:1px solid #ddd;padding: 7px 2px;
+    font-weight: bold;"><strong><</strong> last step  </span><p>
+		
+		<span class="nextstep1" style="border:1px solid #ddd;padding: 7px 2px;cursor: pointer;
+    font-weight: bold;">next step <strong>></strong> </span>
+      </div>
+	</div>
+
+	<div id="option-student" style="display:none;width:400px;border: 1px solid #ddd;
+    position: absolute;
+    left: 40%;
+    padding: 3px 10px;
+    top: 100px;
+    box-shadow: 0 0 5px 5px #ddd" id="signup">
+	   <h3 style="text-align: center;" >
+		<h2>Welcome student</h2>
+		<div class="form-group has-feedback">
+
+		language teach <select name="" form="carform" style="width:200px">
+			<option value="ENGLISH">english</option>
+			<option value="VIETNAM">vietnam</option>
+			<option value="japan">japan</option>
+			<option value="CHINA">china</option>
+		</select>
+		</div>
+		<br />
+
+		<div class="form-group has-feedback">
+	Home country :<select name="" form="" style="width:200px">
+	        <option value="vietnam">vietnam</option><
+		    <option value="england">england</option>
+		   <option value="US">US</option>
+		   <option value="china">china</option>
+	   </select>
+	   </div>
+		<br />
+
+	   <div class="form-group has-feedback">
+	  Timezone :<select name="" form="" style="width:200px">
+			   <option value="vietnam">vietnam</option>
+			   <option value="US">us</option>
+			
+		  </select>
+		  </div>
+
+		<br />
+
+		  <div class="form-group has-feedback">
+		  Birth year :<select name="" form="" style="width:200px">
+				   <option value="1996">1996</option>
+				   <option value="1997">1997</option>
+				  <option value="1998">1998</option>
+				  <option value="1999">1999</option>
+			  </select>
+			</div>
+		<br />
+
+	   <div class="form-group has-feedback" style="display: flex;
+    align-items: center;margin-bottom: 2px;">
+       
+		<p style="flex-grow: 1;cursor: pointer; "><span class="laststep2" style="border:1px solid #ddd;padding: 7px 2px;
+    font-weight: bold;"><strong><</strong> last step  </span><p>
+		
+		<span class="nextstep2" style="border:1px solid #ddd;padding: 7px 2px;cursor: pointer;
+    font-weight: bold;">next step <strong>></strong> </span>
+      </div>
+	</div>
+
+	<div id="privacy" style="width: 600px;overflow-y: scroll;display: none;border: 1px solid #ddd;
+    position: absolute;
+    left: 26%;
+    padding: 3px 10px;
+    top: 100px;
+    box-shadow: 0 0 5px 5px #ddd">
+		<h2 style="text-align: center">Privacy and Terms </h2>
+		<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius nihil repellendus aliquam cupiditate animi recusandae fuga. Voluptatem reiciendis exercitationem modi corrupti necessitatibus praesentium, ad nemo iste asperiores voluptatibus, aperiam alias.
+		Perspiciatis neque eius ad, maxime est hic eveniet temporibus cupiditate, ratione tenetur unde provident soluta eum dolor distinctio! Necessitatibus labore enim, nemo a vitae accusantium quod ex facilis porro beatae!
+		Deserunt nisi provident natus esse, accusantium ea commodi, quo laudantium harum quas laboriosam numquam facere, quis eius quod temporibus adipisci libero cumque nesciunt sed debitis consectetur dolor excepturi. Itaque, ex!
+		Doloribus, libero. Maxime qui, corporis enim beatae explicabo delectus, quas eveniet ea quam pariatur molestias perspiciatis! Quibusdam ipsum dolorem aut quae, eligendi consequuntur libero consectetur dolorum ratione, nostrum non illo.
+		Fugiat temporibus rerum beatae dicta expedita ex voluptate iste officia, numquam, facilis qui deserunt. Magni magnam eveniet commodi cum sint, quasi soluta aliquid reprehenderit corrupti laborum ipsa deserunt minus fugiat.
+		Deleniti tempora dignissimos rem est. Ratione alias voluptatum natus rem at exercitationem praesentium accusantium magni mollitia, neque, nesciunt ab! Aliquam iste saepe voluptates incidunt assumenda, voluptatum eaque id ducimus aut?
+		Optio facere officia sit obcaecati aut doloribus iure, deserunt quia perferendis ab, sequi asperiores, amet voluptatem? Minima in tenetur et velit temporibus, suscipit eveniet harum voluptates maxime quis illum culpa.
+		Delectus, doloribus nobis.!</p>
+		<div style="    display: flex;
+    align-items: center;">
+		<p style="flex-grow: 1;height: 40px;
+    margin-bottom: 0px;
+    line-height: 40px"><span class="badge badge-secondary" style="padding: 10px 17px; font-size: 15px;
+
+
+" role="button" id="cancel">cancel</span></p>
+		<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+	</div>
+	</form> 	
+
+</body>
+</html>	
