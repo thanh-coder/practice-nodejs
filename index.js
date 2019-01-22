@@ -20,7 +20,7 @@ app.use(cookieParser())
 // app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 app.use(methodOverride('_method'));
 
-var port = 3002;
+var port = process.env.PORT||3002;
 
 
 app.set('view engine', 'ejs');
